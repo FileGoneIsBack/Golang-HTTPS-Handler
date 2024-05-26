@@ -17,7 +17,13 @@ var (
 )
 
 func Initialize() {
-	Options.Config.NewInclusion(".json", func(content []byte, file string, m map[string]any) error {
+	err := Options.Config.Parse("assets")
+	if err != nil {
+		log.Println(err)
+		return
+	}
+
+	Options.Config.NewInclusion(".json", func(content []byte, file string, m map[string]interface{}) error {
 		switch file {
 		case filepath.Join("assets/config", "config.json"):
 			models.Config = new(models.Conf)
@@ -27,12 +33,6 @@ func Initialize() {
 			return json.Unmarshal(content, &m)
 		}
 	})
-
-	err := Options.Config.Parse("assets")
-	if err != nil {
-		log.Println(err)
-		return
-	}
 
 	Options, err = Options.Config.Options()
 	if err != nil {
