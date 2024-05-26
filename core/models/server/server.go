@@ -70,10 +70,11 @@ func (s *Server) ListenAndServe() error {
    		return errors.New("certificate or key is empty")//verify cert/key
   	}
   	s.mux.Addr = strings.Split(s.config.Addr, ":")[0] + ":443"
-  	log.Print("Server is running on HTTPS on " + s.mux.Addr)
+  	s.logger.Println("Server is running on HTTPS on " + s.mux.Addr)
+	  s.logger.Println("listening with " + fmt.Sprint(s.Subrouters()) + " subrouters and " + fmt.Sprint(s.Routes()) + " routes.") //LIST
   		return s.mux.ListenAndServeTLS(cert, key) //start HTTP(S)
- 	} else {
-  		log.Print("Server is running on HTTP on " + s.mux.Addr) //START HTTP
+ 	} else { 
+		s.logger.Println("Server is running on HTTP on " + s.mux.Addr) //START HTTP
  	}
     
     s.logger.Println("listening with " + fmt.Sprint(s.Subrouters()) + " subrouters and " + fmt.Sprint(s.Routes()) + " routes.") //LIST
