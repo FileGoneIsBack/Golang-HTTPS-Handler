@@ -1,0 +1,223 @@
+/* Common styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1b1b1b;
+    height: 90vh;
+    display: flex;
+  }
+  
+  .title {
+    max-width: 60%;
+    width: 100%;
+    align-self: center;
+    margin: 0 auto;
+    overflow: hidden;
+    padding-bottom: 10px;
+  }
+  
+  .title span a {
+    letter-spacing: 0.25vw;
+    text-transform: uppercase;
+    position: relative;
+    font-weight: 600;
+    font-size: 5vw;
+    display: inline-block;
+    margin-left: 0.5rem;
+    text-decoration: none;
+    color: #f71818;
+  }
+  
+  .title span a::after {
+    content: "";
+    height: 2px;
+    background-color: #f71818;
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 0;
+    animation: linkAfter 0.5s 1s ease both;
+  }
+  
+  @keyframes linkAfter {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+  
+  .container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .box {
+    position: absolute;
+    top: 50%;
+    left: 80%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background: #1b1b1b;
+    box-sizing: border-box;
+    overflow: hidden;
+    box-shadow: 0 20px 50px rgb(247, 24, 24);
+    border: 2px solid #1b1b1b;
+    color: white;
+    padding: 20px;
+  }
+  
+  .box:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transition: 0.5s;
+    pointer-events: none;
+  }
+  
+  .box:hover:before {
+    left: -50%;
+    transform: skewX(-5deg);
+  }
+  
+  .box .content {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(247, 24, 24);
+  }
+  
+  .box span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    box-sizing: border-box;
+  }
+  
+  .box span:nth-child(1) {
+    transform: rotate(0deg);
+  }
+  
+  .box span:nth-child(2) {
+    transform: rotate(90deg);
+  }
+  
+  .box span:nth-child(3) {
+    transform: rotate(180deg);
+  }
+  
+  .box span:nth-child(4) {
+    transform: rotate(270deg);
+  }
+  
+  .box span:before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: #f71818;
+    animation: animate 4s linear infinite;
+  }
+  
+  @keyframes animate {
+    0% {
+      transform: scaleX(0);
+      transform-origin: left;
+    }
+    50% {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+    50.1% {
+      transform: scaleX(1);
+      transform-origin: right;
+    }
+    100% {
+      transform: scaleX(0);
+      transform-origin: right;
+    }
+  }
+  
+  .box h2 {
+    transform: translateX(28%);
+    font-size: 19px;
+    color: #f71818;
+    text-shadow: 0 20px 50px rgb(247, 24, 24);
+  }
+  
+  .box p a{
+    text-transform: uppercase;
+    position: relative;
+    font-weight: 100;
+    display: inline-block;
+    margin-left: 0.5rem;
+    text-decoration: none;
+    color: #f71818;
+  }
+  
+  .box:hover p a::after {
+    content: "";
+    height: 2px;
+    background-color: #f71818;
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 0;
+    animation: linkAfter 0.5s 0.5s ease both;
+  
+  }
+  
+  .footer {
+    /* Add flex container properties */
+    display: flex;
+    justify-content: flex-end; /* Align items to the right */
+    align-items: flex-end; /* Align items to the bottom */
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%; /* Ensure full width */
+}
+
+.footer a {
+    /* Remove align-items property */
+    /* Adjust position properties if needed */
+    font-weight: 100;
+    text-decoration: none;
+    color: #f81212;
+    margin-right: 0.5rem; /* Adjust margin-right if needed */
+}
+  
+  @keyframes linkAfter {
+    0% {
+      width: 0;
+    }
+    100% {
+      width: 100%;
+    }
+  }
+  
+  /* For mobile devices */
+  @media (max-width: 750px) {
+    .title {
+      text-align: center;
+      margin-bottom: 450px;
+      font-size: 10px;
+    }
+  
+    .box {
+      margin: 0 auto;
+      left: 50%;
+    }
+  }

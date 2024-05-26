@@ -1,0 +1,7 @@
+{
+    "name": "Files Handler <3",
+    "secure": true,
+    "version": "1.5.0",
+    "cert": "assets/server.cert",
+    "key": "assets/server.key"
+}
