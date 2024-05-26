@@ -13,8 +13,7 @@ func init() {
 			Name, Title, Vers       string
 		}
 		functions.Render(Page{
-			Name:         "Twilight",
-			Title:        "Dashboard",
+			Title:        "test",
 			Vers:         models.Config.Vers,
 		}, w, "test", "test.html")
 	}))
