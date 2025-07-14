@@ -5,20 +5,15 @@ import (
 	"api/core/master"
 	"os/exec"
 	"os"
-	"github.com/janeczku/go-spinner"
 )
 
 func main() {
 	// Start the configs
-	s := spinner.StartNew("Initializing")
-	core.Initialize()
-	s.Stop()
+	core.Initialize() // controls any objectS YOU need to add to config.json for further complex
 
 	// Clear the screen
 	clearScreen()
 
-	// Start the webserver
-	s = spinner.StartNew("Webserver Started")
 	master.NewV2()
 	s.Stop()
 }
